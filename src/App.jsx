@@ -1,13 +1,20 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
 import ChatPage from "./pages/ChatPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   return (
-    <div>
-      <ChatPage />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/chat" element={<ChatPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-<h1 className="text-4xl text-green-500">Working ✅</h1>
 
 export default App;
