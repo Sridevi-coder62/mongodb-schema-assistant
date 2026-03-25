@@ -1,236 +1,370 @@
 # 🗄️ AI-Based MongoDB Schema Generator
 
-> A smart web application that automatically generates MongoDB schemas based on simple text descriptions — built for developers and learners who want to skip the hassle of manual database design.
+<div align="center">
 
-![MongoDB](https://img.shields.io/badge/MongoDB-6.0-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![SchemaAI Banner](https://img.shields.io/badge/SchemaAI-v2.0-00e5ff?style=for-the-badge&labelColor=020408)
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![Node.js](https://img.shields.io/badge/Node.js-18-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![Express](https://img.shields.io/badge/Express.js-black?style=for-the-badge&logo=express&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-7-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind-CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+
+**Describe your application in plain English — get a production-ready MongoDB schema instantly.**
+
+[🚀 Live Demo](#) · [📖 Docs](#-local-setup) · [🐳 Docker](#-docker-setup) · [📸 Screenshots](#-screenshots)
+
+</div>
 
 ---
 
-## 📌 Project Synopsis
+## 📌 What Is This?
 
-Designing database schemas manually requires deep knowledge, takes significant time, and often leads to inefficient structures — especially for beginners.
+**AI-Based MongoDB Schema Generator** is a full-stack web application that automatically generates MongoDB database schemas from simple text descriptions.
 
-The **AI-Based MongoDB Schema Generator** solves this by letting users simply *describe* what they need in plain English. The system interprets the input and instantly generates a structured MongoDB schema — complete with collections, fields, and data types.
+Instead of manually designing collections and fields, you simply type:
 
-### Supported Application Types
-- 🛒 E-commerce Applications
-- 📝 Blog Platforms
-- 💬 Chat Applications
-- 📅 Booking Systems
-- 💳 Payment Systems
-- ⭐ Review & Rating Systems
-- 🔔 Notification Systems
-- 📁 File Upload Systems
-- 👤 User Management Systems
-- 🔐 Authentication Systems
+> *"I need schema for a hospital management system"*
+
+And instantly receive a structured, ready-to-use MongoDB schema with proper collections, fields, and data types — displayed in a beautiful ChatGPT-style interface.
 
 ---
 
-## 🎨 Frontend Design
+## ✨ What's New in v2.0
 
-Built with **React.js + Vite + Tailwind CSS** — a premium dark terminal-style UI inspired by modern developer tools.
-
-### UI Components
-```
-src/
-├── components/
-│   ├── ChatInput.jsx      # Text input + file upload
-│   ├── ChatWindow.jsx     # Message display with syntax highlighting
-│   └── Sidebar.jsx        # History panel + new chat button
-└── pages/
-    └── ChatPage.jsx       # Main layout page
-```
-
-### Key UI Features
-- 🌑 **Dark terminal aesthetic** with cyan/blue accent colors
-- ✨ **Syntax highlighted schema output** — each data type has its own color:
-  - 🟢 `String` — Green
-  - 🟠 `Number` — Amber
-  - 🟣 `Date` — Purple
-  - 🔵 `ObjectId` — Cyan
-  - 🟤 `Boolean` — Coral
-  - 🩷 `Array` — Pink
-- 📋 **One-click copy** for generated schemas
-- 📁 **File upload** support (.json, .txt, .js, .ts, .jsx)
-- 🕒 **History sidebar** with timestamps showing past sessions
-- ⚡ **Quick-start hint cards** for common schema types
-- 📱 **Responsive layout** with smooth animations
-
-### Color Palette
-| Element | Color |
-|---|---|
-| Background | `#080c12` |
-| Sidebar | `#06090f` |
-| Accent | `#00e5ff` Cyan |
-| Primary | `#0066ff` Blue |
-| Text | `#c8dff0` |
-
----
-
-## ⚙️ Backend Design
-
-Built with **Node.js + Express.js** — a clean REST API with keyword-based schema generation logic.
-
-### Folder Structure
-```
-ai-schema-backend/
-├── server.js          # Main server file
-├── package.json
-└── .env               # Environment variables (not pushed to GitHub)
-```
-
-### API Endpoints
-
-| Method | Endpoint | Description |
+| Feature | v1.0 | v2.0 |
 |---|---|---|
-| `GET` | `/` | Health check |
-| `POST` | `/generate` | Accepts description → returns generated schema |
-| `GET` | `/all` | Returns full history of generated schemas |
+| Schema domains | 10 | **20** |
+| Chat history | Global | **Per-user sessions** |
+| Authentication | ❌ | **✅ JWT + Bcrypt** |
+| File upload | ❌ | **✅ .json, .js, .txt, .md...** |
+| Bot response | Plain text | **Word-by-word typing animation** |
+| UI style | Basic dark | **Neon / Cyberpunk** |
+| History loading | View only | **Click to reload full chat** |
+| Homepage | ❌ | **✅ Landing page** |
 
-### How It Works
-```
-User types: "I need schema for payment"
-        ↓
-Backend detects keyword: "payment"
-        ↓
-Returns: payments { userId, amount, method, status }
-        ↓
-Saves to MongoDB + sends response to frontend
-```
+---
 
-### Database Model
-```javascript
-{
-  description: String,       // What the user typed
-  generatedSchema: Object,   // The generated schema
-  createdAt: Date,           // Timestamp (auto)
-  updatedAt: Date            // Timestamp (auto)
-}
+## 🎨 UI Preview
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  S SCHEMAAI                              ● LIVE           v2.0  │
+├──────────────────┬──────────────────────────────────────────────┤
+│                  │  MONGODB SCHEMA GENERATOR › describe model   │
+│  + NEW SCHEMA    │                                              │
+│                  │  ┌─ User ──────────────────────────────────┐ │
+│  HISTORY         │  │ E-commerce app with products...         │ │
+│  · E-commerce... │  └─────────────────────────────────────────┘ │
+│  · Hospital sy.. │                                              │
+│  · Blog platfo.. │  AI  Sure! 🛒 I'm analyzing your e-commerce  │
+│  · Chat app...   │      requirements and designing optimized    │
+│                  │      collections for products, orders...     │
+│  ─────────────── │      ┌─ MONGODB SCHEMA ──────────────── COPY┐│
+│  S  Sridevi      │      │ "products": {                        ││
+│     user@mail    │      │   "title": "String",                 ││
+│                  │      │   "price": "Number",                 ││
+│                  │      └──────────────────────────────────────┘│
+│                  │  ┌─────────────────────────────── 📎 ──────┐ │
+│                  │  │ Describe your database schema...        │ │
+│                  │  └─────────────────────────────────────────┘ │
+└──────────────────┴──────────────────────────────────────────────┘
 ```
 
 ---
 
-## 🛠️ Tools & Technologies
+## 🧠 Supported Domains (20 Total)
 
-### Frontend
-| Technology | Purpose |
-|---|---|
-| React.js 18 | UI framework |
-| Vite | Build tool and dev server |
-| Tailwind CSS | Utility-first styling |
-| JavaScript ES6+ | Programming language |
-
-### Backend
-| Technology | Purpose |
-|---|---|
-| Node.js | Runtime environment |
-| Express.js | Web framework |
-| Mongoose | MongoDB ODM |
-| CORS | Cross-origin requests |
-| dotenv | Environment variables |
-
-### Database
-| Technology | Purpose |
-|---|---|
-| MongoDB | NoSQL database |
-
-### DevOps & Tools
-| Technology | Purpose |
-|---|---|
-| Docker | Containerization |
-| Docker Compose | Multi-container orchestration |
-| Git | Version control |
-| GitHub | Code hosting |
-| VS Code | Code editor |
-| Thunder Client | API testing |
+| # | Domain | Collections Generated |
+|---|---|---|
+| 1 | 🛒 E-Commerce | products, orders, carts |
+| 2 | 📝 Blog / CMS | posts, categories, tags |
+| 3 | 💬 Chat & Messaging | conversations, messages |
+| 4 | 📱 Social Media | posts, follows, comments |
+| 5 | 🏥 Healthcare | patients, doctors, appointments |
+| 6 | 🎓 Education / LMS | courses, enrollments, quizzes |
+| 7 | 🍔 Food Delivery | restaurants, menus, orders |
+| 8 | 🏨 Hotel / Booking | bookings, resources |
+| 9 | 💳 Fintech / Payments | wallets, transactions, invoices |
+| 10 | 📋 Project Management | projects, tasks |
+| 11 | 📦 Inventory | stock, warehouses, suppliers |
+| 12 | 🏠 Real Estate | properties, agents, inquiries |
+| 13 | 💼 Job Portal / HR | jobs, applications, companies |
+| 14 | 🎮 Gaming | players, leaderboards, rooms |
+| 15 | 🎫 Events & Ticketing | events, tickets |
+| 16 | 🔌 IoT / Smart Devices | devices, sensorData |
+| 17 | ⭐ Review & Rating | reviews |
+| 18 | 🔔 Notifications | notifications |
+| 19 | 📁 File / Media Storage | files, folders |
+| 20 | 👤 User Management | users |
 
 ---
 
-## 🚀 System Architecture
+## 🏗️ System Architecture
+
 ```
-User Interface (React + Vite)
-        ↓ HTTP Request
-Backend Server (Node.js + Express)
-        ↓ Mongoose
-MongoDB Database
-        ↓
-Response back to Frontend
+┌─────────────────────────────────────────────────────┐
+│                   DOCKER NETWORK                    │
+│                                                     │
+│  ┌──────────────┐    ┌──────────────┐    ┌───────┐ │
+│  │   Frontend   │───▶│   Backend    │───▶│ Mongo │ │
+│  │  React+Vite  │    │  Node+Express│    │  DB   │ │
+│  │  Port: 5173  │    │  Port: 5000  │    │ 27017 │ │
+│  └──────────────┘    └──────────────┘    └───────┘ │
+│                                                     │
+└─────────────────────────────────────────────────────┘
 ```
+
+**Request flow:**
+```
+User types description
+       ↓
+React frontend (ChatPage)
+       ↓  POST /api/generate
+Express backend + JWT auth
+       ↓
+Keyword schema generator (20 domains)
+       ↓
+Save to MongoDB (ChatSession per user)
+       ↓
+Response with schema + bot intro
+       ↓
+Word-by-word typing animation → Schema display
+```
+
+---
+
+## 🗂️ Project Structure
+
+```
+mongodb-schema-assistant/
+│
+├── 📁 ai-schema-backend/          # Node.js + Express API
+│   ├── 📁 models/
+│   │   └── User.js                # User schema (Mongoose)
+│   ├── 📁 routes/
+│   │   └── authRoutes.js          # Register + Login (JWT)
+│   ├── 📁 uploads/                # Uploaded files (gitignored)
+│   ├── server.js                  # Main server + all routes
+│   ├── Dockerfile                 # Backend container
+│   ├── .env                       # Environment variables
+│   └── package.json
+│
+├── 📁 src/                        # React frontend
+│   ├── 📁 pages/
+│   │   ├── HomePage.jsx           # Landing page
+│   │   ├── LoginPage.jsx          # Auth - login
+│   │   ├── RegisterPage.jsx       # Auth - register
+│   │   └── ChatPage.jsx           # Main chat interface
+│   ├── App.jsx                    # Routes
+│   └── main.jsx
+│
+├── Dockerfile                     # Frontend container
+├── nginx.conf                     # SPA routing config
+├── docker-compose.yml             # All 3 services
+└── README.md
+```
+
+---
+
+## ⚙️ API Endpoints
+
+### Auth
+| Method | Endpoint | Description | Auth |
+|---|---|---|---|
+| POST | `/api/auth/register` | Create new user | ❌ |
+| POST | `/api/auth/login` | Login → returns JWT | ❌ |
+
+### Chat Sessions
+| Method | Endpoint | Description | Auth |
+|---|---|---|---|
+| GET | `/api/sessions` | Get all user's sessions | ✅ |
+| GET | `/api/sessions/:id` | Load session with messages | ✅ |
+| POST | `/api/sessions` | Create new session | ✅ |
+| DELETE | `/api/sessions/:id` | Delete a session | ✅ |
+
+### Schema Generation
+| Method | Endpoint | Description | Auth |
+|---|---|---|---|
+| POST | `/api/generate` | Generate schema + save to session | ✅ |
+| POST | `/api/upload` | Upload file | ✅ |
 
 ---
 
 ## 🐳 Docker Setup
-```bash
-docker-compose up --build
-```
 
-All 3 services start automatically:
-- Frontend → http://localhost:5173
-- Backend → http://localhost:5000
-- MongoDB → localhost:27017
+### Prerequisites
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running
 
----
+### Run everything with one command
 
-## 📦 Local Setup
 ```bash
 # Clone the repo
 git clone https://github.com/Sridevi-coder62/mongodb-schema-assistant.git
+cd mongodb-schema-assistant
 
-# Setup backend
+# Start all 3 services
+docker-compose up --build
+```
+
+**Services start automatically:**
+
+| Service | URL |
+|---|---|
+| 🌐 Frontend | http://localhost:5173 |
+| ⚙️ Backend | http://localhost:5000 |
+| 🍃 MongoDB | localhost:27017 |
+
+### Stop containers
+```bash
+docker-compose down
+```
+
+### Stop and remove volumes (reset DB)
+```bash
+docker-compose down -v
+```
+
+---
+
+## 💻 Local Setup (Without Docker)
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/Sridevi-coder62/mongodb-schema-assistant.git
+cd mongodb-schema-assistant
+```
+
+### 2. Setup Backend
+```bash
 cd ai-schema-backend
 npm install
-node server.js
+```
 
-# Setup frontend
+Create `.env` file:
+```env
+MONGO_URI=mongodb://127.0.0.1:27017/ai-schema-db
+PORT=5000
+JWT_SECRET=your_super_secret_key_here
+```
+
+Start backend:
+```bash
+node server.js
+```
+
+### 3. Setup Frontend
+```bash
 cd ..
 npm install
 npm run dev
 ```
 
+### 4. Open in browser
+```
+http://localhost:5173
+```
+
 ---
 
-## ✨ Features
+## 🔐 Environment Variables
 
-- ✅ Generate MongoDB schemas from plain English
-- ✅ Supports 10+ application domain types
-- ✅ Syntax highlighted schema output
-- ✅ Chat-style interface
-- ✅ History of all generated schemas
-- ✅ File upload support
-- ✅ One-click copy for schemas
-- ✅ Fully Dockerized
-- ✅ MongoDB persistence
+| Variable | Description | Example |
+|---|---|---|
+| `MONGO_URI` | MongoDB connection string | `mongodb://localhost:27017/ai-schema-db` |
+| `PORT` | Backend server port | `5000` |
+| `JWT_SECRET` | Secret key for JWT tokens | `mysecretkey123` |
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+| Technology | Purpose |
+|---|---|
+| React.js 18 | UI framework |
+| Vite | Build tool & dev server |
+| Tailwind CSS | Utility-first styling |
+| React Router v6 | Client-side routing |
+
+### Backend
+| Technology | Purpose |
+|---|---|
+| Node.js 18 | Runtime environment |
+| Express.js | Web framework |
+| Mongoose | MongoDB ODM |
+| bcryptjs | Password hashing |
+| jsonwebtoken | JWT authentication |
+| multer | File upload handling |
+| cors | Cross-origin requests |
+| dotenv | Environment variables |
+
+### Database & DevOps
+| Technology | Purpose |
+|---|---|
+| MongoDB 7 | NoSQL database |
+| Docker | Containerization |
+| Docker Compose | Multi-container orchestration |
+| Nginx | Frontend static file serving |
+| Git + GitHub | Version control |
+
+---
+
+## ✅ Features
+
+- ✅ Generate MongoDB schemas from plain English descriptions
+- ✅ Supports **20 application domain types**
+- ✅ **JWT authentication** — secure login & registration
+- ✅ **Per-user chat sessions** — private, persistent history
+- ✅ **Click history to reload** full past conversations
+- ✅ **Word-by-word typing animation** like ChatGPT
+- ✅ **File upload** — auto-generate schemas from existing code files
+- ✅ Syntax highlighted schema output (6 data type colors)
+- ✅ One-click **copy schema** to clipboard
+- ✅ **Neon/Cyberpunk UI** — dark theme with glowing accents
+- ✅ Beautiful **landing/home page**
+- ✅ User profile panel with logout
+- ✅ Fully **Dockerized** (3-service setup)
+- ✅ MongoDB persistence across restarts
 
 ---
 
 ## 🔮 Future Enhancements
 
-- Real AI model integration
-- Auto relationship detection
-- Export schema as Mongoose model code
-- Visual schema diagram
-- Cloud deployment
+- [ ] Real AI model integration (OpenAI / Gemini)
+- [ ] Auto relationship detection between collections
+- [ ] Export schema as Mongoose model code
+- [ ] Visual schema diagram (ERD)
+- [ ] Cloud deployment (AWS / Railway / Render)
+- [ ] Schema versioning and editing
+- [ ] Team collaboration support
 
 ---
 
 ## 👩‍💻 Developer
 
 **Sridevi K**
-- GitHub: [@Sridevi-coder62](https://github.com/Sridevi-coder62)
-- BCA Student | Kristu Jayanti College
-- Member of ACM-W | UiPath Core Team
+
+- 🐙 GitHub: [@Sridevi-coder62](https://github.com/Sridevi-coder62)
+- 🎓 BCA Student | Kristu Jayanti College
+- 👥 Member of ACM-W | UiPath Core Team
 
 ---
 
 ## 📚 References
 
-- [MongoDB Documentation](https://www.mongodb.com/docs/)
+- [MongoDB Documentation](https://docs.mongodb.com/)
 - [React Documentation](https://react.dev/)
-- [Node.js Documentation](https://nodejs.org/en/docs)
+- [Node.js Documentation](https://nodejs.org/docs/)
 - [Docker Documentation](https://docs.docker.com/)
 - [Express.js Documentation](https://expressjs.com/)
+- [JWT Documentation](https://jwt.io/)
+
+---
+
+<div align="center">
+
+Made with ❤️ by Sridevi K · BCA Student · Kristu Jayanti College
+
+⭐ Star this repo if it helped you!
+
+</div>
